@@ -1,5 +1,5 @@
+//add thư viện từ file news.js và site.js
 const newsRouter = require("./news");
-
 const siteRouter = require("./site");
 
 function route(app) {

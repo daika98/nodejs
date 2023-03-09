@@ -1,10 +1,18 @@
+const Course = require("../model/Course");
+
 class SiteController {
-  //get /news
-  home(req, res) {
-    res.render("home");
+  //get /home
+  home(req, res, next) {
+    Course.find({})
+      .then(function (courses) {
+        // Process results
+        courses = courses.map((course) => course.toObject());
+        res.render("home", { courses });
+      })
+      .catch(next);
   }
 
-  //get /news/tin-hot
+  //get /search
   search(req, res) {
     res.render("search");
   }
